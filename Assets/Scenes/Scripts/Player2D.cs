@@ -67,16 +67,16 @@ public class Player2D : Collisions
    
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && canMoveLeft) { v.velX -= speed * Time.fixedDeltaTime; canMoveLeft = true; }
-        if (Input.GetKey(KeyCode.RightArrow) && canMoveRight) { v.velX += speed * Time.fixedDeltaTime; canMoveRight = true; }
+        if (Input.GetKey(KeyCode.LeftArrow) && canMoveLeft) { v.velX -= speed * Time.deltaTime; canMoveLeft = true; }
+        if (Input.GetKey(KeyCode.RightArrow) && canMoveRight) { v.velX += speed * Time.deltaTime; canMoveRight = true; }
 
         // Max velocity
         if (v.velX > 10f) { v.velX = 10f; }
         if (v.velX < -10f) { v.velX = -10f; }
 
-        pos.x = pos0.x + v0.velX * Time.fixedDeltaTime;
+        pos.x = pos0.x + v0.velX * Time.deltaTime;
         playerTransform.position = new Vector3(pos0.x, pos0.y, 0f);
 
 
@@ -89,8 +89,8 @@ public class Player2D : Collisions
         else
         {
             isGrounded = false;
-            v.velY = v0.velY - PhyConstants.gravity * Time.fixedDeltaTime;
-            pos.y = pos0.y + v0.velY * Time.fixedDeltaTime - (PhyConstants.gravity / 2) * (Mathf.Pow(Time.fixedDeltaTime, 2));
+            v.velY = v0.velY - PhyConstants.gravity * Time.deltaTime;
+            pos.y = pos0.y + v0.velY * Time.deltaTime - (PhyConstants.gravity / 2) * (Mathf.Pow(Time.deltaTime, 2));
         }
 
         // CHECKING COLLISION WITH CEILING
@@ -122,7 +122,7 @@ public class Player2D : Collisions
         }
 
         // JUMPING
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             Debug.Log("HOP");
             isJumping = true;
@@ -133,7 +133,7 @@ public class Player2D : Collisions
 
         if (isJumping)
         {
-            pos.y = pos0.y + v.velY * Time.fixedDeltaTime - PhyConstants.gravity / 2 * Mathf.Pow(Time.fixedDeltaTime, 2);
+            pos.y = pos0.y + v.velY * Time.deltaTime - PhyConstants.gravity / 2 * Mathf.Pow(Time.deltaTime, 2);
         }
 
         // GROUND FRICTION
