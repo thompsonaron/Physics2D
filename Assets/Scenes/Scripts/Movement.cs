@@ -26,7 +26,7 @@ public class Position
 
 public static class PhyConstants
 {
-    public const float gravity = 9.81f;
+    public const float gravity = 9.8f;
 }
 public enum TypeOfFluid { Water, Propane, Mercury }
 public enum TypeOfMaterial { Wood, Stone, Plastic }

@@ -182,11 +182,15 @@ public class Player2D : Collisions
             float bonus = 1f;
             if (Mathf.Abs(Fb) > Mathf.Abs(Fg))
             {
-                v.velY = v0.velY + Fb - Fg + bonus;
+                //v.velY = v0.velY + Fb - Fg + bonus;
+                v.velY = v0.velY + Fb - Fg;
+                v.velY = v.velY * 1f;
             }
             if (Mathf.Abs(Fg) > Mathf.Abs(Fb))
             {
-                v.velY = v0.velY + Fg - Fb + bonus;
+                //v.velY = v0.velY + Fg - Fb + bonus;
+                v.velY = v0.velY + Fg - Fb;
+                v.velY = v.velY * 1f;
             }
             Debug.Log("vel " + v.velY);
         }

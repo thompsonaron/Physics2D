@@ -32,7 +32,7 @@ public class Collisions : MonoBehaviour
             float obstacleLeftYAxis = collidedObjects[i].transform.position.x - (collidedObjects[i].transform.localScale.x / 2);
             float obstacleRightYAxis = collidedObjects[i].transform.position.x + (collidedObjects[i].transform.localScale.x / 2);
 
-            if (objBottomXAxis - offset <= obstacleTopXAxis && objTopXAxis > obstacleTopXAxis && ((objLeftYAxis <= obstacleRightYAxis) && (objRightYAxis >= obstacleLeftYAxis)))
+            if (objBottomXAxis - offset <= obstacleTopXAxis && objTopXAxis > obstacleTopXAxis && ((objLeftYAxis < obstacleRightYAxis) && (objRightYAxis > obstacleLeftYAxis)))
             {
                 Debug.Log("ColD");
                 objectToCheckCollisionsWith.transform.position = new Vector2(transform.position.x, collidedObjects[i].transform.position.y + collidedObjects[i].transform.localScale.y / 2 + objectToCheckCollisionsWith.transform.localScale.y / 2 + correction);
@@ -56,7 +56,7 @@ public class Collisions : MonoBehaviour
             float obstacleLeftYAxis = collidedObjects[i].transform.position.x - (collidedObjects[i].transform.localScale.x / 2);
             float obstacleRightYAxis = collidedObjects[i].transform.position.x + (collidedObjects[i].transform.localScale.x / 2);
 
-            if (objTopXAxis + offset >= obstacleBottomXAxis && objBottomXAxis < obstacleBottomXAxis && ((objLeftYAxis <= obstacleRightYAxis) && (objRightYAxis >= obstacleLeftYAxis)))
+            if (objTopXAxis + offset >= obstacleBottomXAxis && objBottomXAxis < obstacleBottomXAxis && ((objLeftYAxis < obstacleRightYAxis) && (objRightYAxis > obstacleLeftYAxis)))
             {
                 Debug.Log("ColU");
                 objectToCheckCollisionsWith.transform.position = new Vector2(transform.position.x, collidedObjects[i].transform.position.y - collidedObjects[i].transform.localScale.y / 2 - objectToCheckCollisionsWith.transform.localScale.y / 2 - correction);
@@ -82,7 +82,7 @@ public class Collisions : MonoBehaviour
             float obstacleLeftYAxis = collidedObjects[i].transform.position.x - (collidedObjects[i].transform.localScale.x / 2);
             float obstacleRightYAxis = collidedObjects[i].transform.position.x + (collidedObjects[i].transform.localScale.x / 2);
 
-            if (objBottomXAxis <= obstacleTopXAxis && objTopXAxis >= obstacleBottomXAxis && (objRightYAxis + offset >= obstacleLeftYAxis) && (objLeftYAxis < obstacleLeftYAxis))
+            if (objBottomXAxis < obstacleTopXAxis && objTopXAxis > obstacleBottomXAxis && (objRightYAxis + offset >= obstacleLeftYAxis) && (objLeftYAxis < obstacleLeftYAxis))
             {
                 Debug.Log("ColR");
                 objectToCheckCollisionsWith.transform.position = new Vector2(collidedObjects[i].transform.position.x - collidedObjects[i].transform.localScale.x / 2 - objectToCheckCollisionsWith.transform.localScale.x / 2 - correction, transform.position.y);
@@ -105,7 +105,7 @@ public class Collisions : MonoBehaviour
             float obstacleLeftYAxis = collidedObjects[i].transform.position.x - (collidedObjects[i].transform.localScale.x / 2);
             float obstacleRightYAxis = collidedObjects[i].transform.position.x + (collidedObjects[i].transform.localScale.x / 2);
 
-            if (objBottomXAxis <= obstacleTopXAxis && objTopXAxis >= obstacleBottomXAxis && (objLeftYAxis - offset <= obstacleRightYAxis) && (objRightYAxis > obstacleRightYAxis))
+            if (objBottomXAxis < obstacleTopXAxis && objTopXAxis > obstacleBottomXAxis && (objLeftYAxis - offset <= obstacleRightYAxis) && (objRightYAxis > obstacleRightYAxis))
             {
                 Debug.Log("ColL");
                 objectToCheckCollisionsWith.transform.position = new Vector2(collidedObjects[i].transform.position.x + collidedObjects[i].transform.localScale.x / 2 + objectToCheckCollisionsWith.transform.localScale.x / 2 + correction, transform.position.y);

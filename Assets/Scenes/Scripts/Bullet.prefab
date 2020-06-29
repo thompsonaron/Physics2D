@@ -99,4 +99,4 @@ MonoBehaviour:
   offset: 0.05
   correction: 0.02
   mass: 2.68
-  projectileShootAngle: 27.1
+  projectileShootAngle: 0
